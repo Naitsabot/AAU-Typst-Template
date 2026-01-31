@@ -9,8 +9,9 @@
  * Appendix label formatting: <apx:mylabel>
  */
 
-= app1 <apx:1>
- == he <apz:1.1>
+= How to Appendix <apx:how_to>
+
+== Labeling <apx:how_to_label>
 
 = app2 <apx:2>
 

@@ -1,38 +1,49 @@
 # AAU Typst Template (Naitsa)
 AAU report template written in typst
 
-## Running in the Typst Online App
+## Running
 
+### Running in the Typst Online App
 
+Copy the following files into the online app:
+- `main.typ` - This contains you costum configs
+- `sources.bib` - for you bibtex soruces
+- `template.typ` - Contains the template
+- `assets/appendix.typ` - Contains appendix entries
+- `assets/AAU/*` - Each AAU grapthic in this folder
 
-## Running Locally
+E voila
 
-### Prerequisites
+### Running Locally
+
+#### Prerequisites
 
 - [Typst](https://typst.app/) - Install the Typst CLI
 
-### Compiling the Document
+#### Compiling the Document
 
 To compile the document to PDF:
 
 ```bash
 typst compile main.typ
+typst compile --font-path ./fonts main.typ # with fonts folder
 ```
 
 To watch for changes and auto-recompile:
 
 ```bash
 typst watch main.typ
+typst watch --font-path ./fonts main.typ # with fonts folder
 ```
 
-### Fonts
+#### Fonts
 
 This template requires the following fonts to be installed in a `fonts/` folder in the project root:
 
 - **Source Sans Pro 3** - Download from [Google Fonts](https://fonts.google.com/specimen/Source+Sans+3) or [Adobe Fonts](https://github.com/adobe-fonts/source-sans)
 - **Barlow** - Download from [Google Fonts](https://fonts.google.com/specimen/Barlow)
 
-Create a `fonts/` directory and place the `.ttf` or `.otf` (Typst supports variable fonts) font files there:
+Create a `fonts/` directory and place the `.ttf` or `.otf` font files there:
 
 ```
 AAU-Typst-Template/
@@ -47,7 +58,11 @@ AAU-Typst-Template/
 
 Typst will automatically discover and use these fonts when compiling.
 
-#### Changing Fonts
+> IMPORTANT:
+> Online Source Sans is "Sources Sans Pro" while locally it is "Source Sans 3"
+> Change this in the configurations
+
+##### Changing Fonts
 
 To change the font to some other fonts (like the system font) go to `template.typ` and change the fonts under:
 ```typ

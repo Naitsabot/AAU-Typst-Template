@@ -61,14 +61,18 @@
 // Uncomment the following, to reder with no refrences. all refrences becomes "?"
 //#show: no-ref
 
-/* 
-TODO:
-- table default
-- fix footnote refrence link
-*/
+#include "chapters/introduction.typ"
 
-//#outline(title: "TODOs", target: figure.where(kind: "todo"))
+#include "chapters/basics.typ"
 
-// Insert your chapters here
+#include "chapters/math.typ"
 
-#include "chapters/temp.typ"
+#include "chapters/figures.typ"
+
+#include "chapters/refrences.typ"
+
+#include "chapters/code.typ"
+
+#include "chapters/understanding_typst.typ"
+
+
