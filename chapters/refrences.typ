@@ -307,35 +307,3 @@ Here are some popular naming conventions:
 Choose one scheme and stick with it throughout your project. Consistency is more important than the specific scheme you choose.
 
 Or you can just do whatever—nobody is stopping you. Just remember that future you (or your collaborators) will appreciate a sensible naming scheme.
-
-== Quick Reference Summary
-
-```typ
-// Links
-#link("https://example.com")[Link text]
-https://example.com
-
-// Labels
-== Section <sec:name>
-#figure(...) <fig:name>
-
-// References
-@sec:name
-@fig:name
-@citation_key
-
-// Custom supplement
-@ch:ref[Part]
-
-// Bibliography
-@author_year
-```
-
-== Best Practices
-
-+ *Use descriptive label names* - `<fig:experiment-results>` not `<fig:1>`
-+ *Be consistent* - Pick a naming scheme and stick with it
-+ *Add labels to everything* - Figures, tables, sections, equations
-+ *Reference in text* - Every labeled item should be referenced
-+ *Use prefixes* - `ch:`, `sec:`, `fig:`, `tab:`, `eq:`, `lst:`
-+ *Check references* - Ensure all `@` references point to existing labels

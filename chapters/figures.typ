@@ -121,20 +121,3 @@ Create subfigures with individual captions:
   ),
   caption: [Main caption for both subfigures]
 ) <fig:subfigs>
-
-== Tables as Figures
-
-Tables should also be wrapped in figures for proper numbering:
-
-#figure(
-  table(
-    columns: 3,
-    [*Parameter*], [*Value*], [*Unit*],
-    [Temperature], [25], [°C],
-    [Pressure], [101.3], [kPa],
-    [Humidity], [65], [%],
-  ),
-  caption: [Experimental parameters]
-) <tab:table>
-
-Reference: See @tab:table for the parameters.
