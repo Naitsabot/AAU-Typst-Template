@@ -6,7 +6,7 @@ AAU report template written in typst
 ### Running in the Typst Online App
 
 Copy the following files into the online app:
-- `main.typ` - This contains you costum configs
+- `main.typ` - This contains you costum configs and file importing
 - `sources.bib` - for you bibtex soruces
 - `template.typ` - Contains the template
 - `assets/appendix.typ` - Contains appendix entries

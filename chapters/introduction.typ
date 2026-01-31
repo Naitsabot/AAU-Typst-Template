@@ -11,13 +11,18 @@ You can start by modifying this template, or using the empty report template.
 === Write Typst Collaboratively
 You can use #link("https://typst.app/")[Typst.app] to write collaboratively. Just download #link("https://github.com/Naitsabot/AAU-Typst-Template/")[this project] as zip, and upload either template to the empty typst project.
 
-== Other Functions
-This is the lorem ipsum function, it can be useful to get a sense of the layout: \
+== Random Function
+The lorem ipsum function. It can be useful to get a sense of the layout: \
 #lorem(20)
 
 == Usage
 
 The `main.typ` contains a bunch of settings for the document. These are outlined in @tab:settings.
+
+The `main.typ` file is also the optimal place to include the different files comprising your document. Simply write the following `#import "path/to/my/file.typ`.
+
+
+
 
 #figure(
   table(
@@ -51,18 +56,18 @@ The `main.typ` contains a bunch of settings for the document. These are outlined
     [`meta.abstract`], [Abstract text (around 190 words)],
     [`meta.preface`], [Preface text],
     [`localisation.lang`], [Language code (e.g., "en" for English)],
-    [`localisation.region`], [Region code (e.g., "gb" for Great Britain)],
+    [`localisation.region`], [Region code (e.g., "gb" for Great Britain. Can affect the online spellchecker!],
     [`settings.bibs`], [Path(s) to bibliography files],
     [`settings.appendix`], [Path to appendix file],
     [`settings.qcover`], [Show cover page (true/false)],
     [`settings.qcovertype2`], [Use alternative cover style (true/false)],
     [`settings.qcolophon`], [Show colophon page (true/false)],
     [`settings.qabstract`], [Show abstract page (true/false)],
-    [`settings.qabstractgithub`], [Show GitHub link on abstract (true/false)],
-    [`settings.qsignature`], [Show signature page (true/false)],
+    [`settings.qabstractgithub`], [Show GitHub Organisation link on abstract (true/false)],
+    [`settings.qsignature`], [Show signature lines and names on preface page (true/false)],
     [`settings.qpreface`], [Show preface page (true/false)],
     [`settings.qtableofcontents`], [Show table of contents (true/false)],
-    [`settings.qappendix`], [Show appendix (true/false)],
+    [`settings.qappendix`], [Show appendices (true/false)],
   ),
   caption: [Document settings in main.typ]
 ) <tab:settings>
