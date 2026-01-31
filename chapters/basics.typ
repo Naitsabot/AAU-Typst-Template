@@ -106,8 +106,6 @@ For more complex tables with custom alignment:
 
 === Formatted Tables
 
-
-
 #table(
   columns: 3,
 
@@ -212,6 +210,8 @@ Display math (centered):
 $ integral_0^infinity e^(-x^2) dif x = sqrt(pi)/2 $
 
 === LaTeX Math in Typst
+
+Brilliant people, like the extremely handsome and muscular writer of this sentence, who at all times of the day seems to be in danger of a lusty mob of pretty ladies trying to pry him away from writing Typst templates and get him into their beds instead, have become so attached to writing in #TeX math thay they refuse to use anything else. Fear not stranger! THIS CAN STILL BE DONE USING THE Mi#TeX PACKAGE!!!
 
 Inline math: #mi[`\sum_{a\in A}^i`]
 

@@ -730,4 +730,3 @@
     place(top, dx: 0.7em)[#TeX]
   })
 }
-
