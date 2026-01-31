@@ -1,4 +1,5 @@
 #import "//template.typ": * // Import of all templating content
+#import "../assets/diagrams.typ": *
 
 = Pointing at Stuff <ch:ref>
 
@@ -30,12 +31,12 @@ Here is a reference to this chapter's heading @ch:ref. I can also reference the 
 
 === Figures
 
-Figures are always a nice thing to reference. Just add a label after a figure, as done in @img:aau, and you are good to go.
+Figures are always a nice thing to reference. Just add a label after a figure, as done in @fig:typst_guy, and you are good to go.
 
 #figure(
-  image("../assets/AAU/aau_logo_en.svg"),
+  typst_guy,
   caption: [Cool figure with a label]
-) <img:aau>
+) <fig:typst_guy>
 
 === Appendices
 

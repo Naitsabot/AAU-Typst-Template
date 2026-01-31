@@ -58,20 +58,18 @@
     ),
 )
 
-// Uncomment the following, to reder with no refrences. all refrences becomes "?"
+// Uncomment the following, to reder with no refrences. all refrences becomes "?".
 //#show: no-ref
 
 #include "chapters/introduction.typ"
 
 #include "chapters/basics.typ"
 
-#include "chapters/math.typ"
-
 #include "chapters/figures.typ"
 
 #include "chapters/refrences.typ"
 
-#include "chapters/code.typ"
+#include "chapters/cetz_diagram.typ"
 
 #include "chapters/understanding_typst.typ"
 

@@ -1,88 +1,375 @@
 #import "//template.typ": * // Import of all templating content
 
-= Basics
+= Basic Formatting <ch:basics>
 
-The above is a chapter heading
+This guide covers essential formatting for writing academic reports in Typst. Each example shows both the code and the result.
 
-== This is a section heading
+== Text Formatting
 
-=== This is a subsection heading
+You can format text in several ways:
 
-==== ... you know what it is
+- *Bold text* using `*asterisks*`
+- _Italic text_ using `_underscores_`
+- `Monospace text` using `` `backticks` ``
+- #underline[Underlined text] using `#underline[text]`
+- #strike[Strikethrough text] using `#strike[text]`
+- #smallcaps[Small Caps] using `#smallcaps[text]`
 
-== Newlines and Page-Breaks
+You can also combine formatting: *_bold and italic_* or *#underline[bold and underlined]*.
 
-You can break \
-line anywhere you \
-want using "\\" symbol.
+== Headings
 
-Also you can use that symbol to
-escape \_all the symbols you want\_,
-if you don't want it to be interpreted as markup
-or other special symbols.
-
-== Comments and Codeblocks
-
-You can write comments with `//` and `/* comment */`:
-// Like this
-/* Or even like
-this */
+Headings are created using `=` symbols:
 
 ```typ
-Just in case you didn't read source,
-this is how it is written:
-
-// Like this
-/* Or even like
-this */
-
-By the way, I'm writing it all in a _fenced code block_ with *syntax highlighting*!
+= Chapter Heading (Level 1)
+== Section Heading (Level 2)
+=== Subsection Heading (Level 3)
+==== Sub-subsection Heading (Level 4)
 ```
 
-See also @ch:code for more on listings with code in them.
+== Paragraphs and Line Breaks
 
-== Lists and Numbered Lists
+A blank line creates a new paragraph.
 
-- Writing lists in a simple way is great.
-- Nothing complex, start your points with `-`
-  and this will become a list.
-  - Indented lists are created via indentation.
+You can break \
+lines within a paragraph \
+using the backslash `\` symbol.
 
-+ Numbered lists start with `+` instead of `-`.
-+ There is no alternative markup syntax for lists
-+ So just remember `-` and `+`, all other symbols
-  wouldn't work in an unintended way.
-  + That is a general property of Typst's markup.
-  + Unlike Markdown, there is only one way
-    to write something with it.
+For a page break, use:
+```typ
+#pagebreak()
+```
 
-#list[
-  [One can also start a list],
-  [using the `list` function]
+== Lists
+
+=== Unordered Lists
+
+Create bullet points with `-`:
+
+- First item
+- Second item
+  - Nested item (indent with spaces)
+  - Another nested item
+- Third item
+
+=== Ordered Lists
+
+Create numbered lists with `+`:
+
++ First step
++ Second step
+  + Sub-step A
+  + Sub-step B
++ Third step
+
+=== Custom Numbered Lists
+
+You can also use manual numbering:
+
+1. Introduction
+2. Methods
+3. Results
+4. Discussion
+
+== Emphasis and Quotes
+
+Use quotes for emphasis or citations:
+
+#quote(attribution: [Albert Einstein])[
+  "Everything should be made as simple as possible, but not simpler."
 ]
 
-
-
+For inline quotes, simply use quotation marks: "like this."
 
 == Tables
 
+Tables are created using the `#table()` function:
+
+#table(
+  columns: 3,
+  [*Method*], [*Year*], [*Accuracy*],
+  [Method A], [2020], [95%],
+  [Method B], [2021], [97%],
+  [Method C], [2022], [98%],
+)
+
+For more complex tables with custom alignment:
+
+#table(
+  columns: (auto, 1fr, auto),
+  align: (left, center, right),
+  [*Name*], [*Description*], [*Value*],
+  [Alpha], [First parameter], [1.5],
+  [Beta], [Second parameter], [2.3],
+)
+
+=== Formatted Tables
 
 
 
-== Images
+#table(
+  columns: 3,
+
+  fill: (_, row) => if calc.odd(row) {
+    theme_aau.light_blue_opaque
+  } else if row == 0 {
+    theme_aau.light_blue
+  },
+
+  [*Method*], [*Year*], [*Accuracy*],
+  [Method A], [2020], [95%],
+  [Method B], [2021], [97%],
+  [Method C], [2022], [98%],
+)
+
+For more complex tables with custom alignment:
+
+#table(
+  columns: (auto, 1fr, auto),
+
+  fill: (_, row) => if calc.odd(row) {
+    theme_aau.light_blue_opaque
+  } else if row == 0 {
+    theme_aau.light_blue
+  },
+
+  align: (left, center, right),
+  [*Name*], [*Description*], [*Value*],
+  [Alpha], [First parameter], [1.5],
+  [Beta], [Second parameter], [2.3],
+)
+
+=== Advanced alignment
+
+Aligment where all table cells are left aligned except the first row and the first column.
+
+#table(
+    columns: (5em, 15em),
+    
+    fill: (_, row) => if calc.odd(row) {
+      theme_aau.light_blue_opaque
+    } else if row == 0 {
+      theme_aau.light_blue
+    },
+
+    align: (col, row) => {
+      if row > 0 and col >  0 { left } 
+      else                    { center }
+    },
+    
+    [*Symbol*], [*Explanation*],
+    [$A subset B$], [$A$ is a subset of $B$],
+    [$A mapsto B$], [$A$ maps to $B$],
+)
+
+== Figures and Images
+
+=== Single Image
+
+#image("../assets/AAU/aau_logo_circle_en.svg", width: 40%)
+
+=== Single Image in a figure
+
+#figure(
+  image("../assets/AAU/aau_logo_circle_en.svg", width: 40%),
+  caption: [Example figure with caption]
+) <fig:example>
+
+Reference the figure using: `@fig:example` → @fig:example
+
+=== Side-by-Side Images (in Figure)
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  figure(
+    image("../assets/AAU/aau_logo_circle_en.svg", width: 80%),
+    caption: [First image]
+  ),
+  figure(
+    image("../assets/AAU/aau_logo_circle_en.svg", width: 80%),
+    caption: [Second image]
+  )
+)
+
+#figure(
+  grid(
+    columns: 2,
+    gutter: 1em,
+    image("../assets/AAU/aau_logo_circle_en.svg", width: 80%),
+    image("../assets/AAU/aau_logo_circle_en.svg", width: 80%),
+  ),
+  caption: [Two images but one figure]
+)
+
+== Mathematical Equations
+
+Inline math: $E = m c^2$
+
+Display math (centered):
+
+$ integral_0^infinity e^(-x^2) dif x = sqrt(pi)/2 $
+
+=== LaTeX Math in Typst
+
+Inline math: #mi[`\sum_{a\in A}^i`]
+
+Display math (centered):
+
+#mitex[`
+\frac
+{e_1\to v_{1}\quad e_2\to v_{2}}
+{e_1 + e_2 \to v_1+v_2}
+`]
+
+=== Referencing Math
+
+$ sum_(k=1)^n k = (n(n+1)) / 2 $<eq:math>
+
+One can reference math equations. In @eq:math is a proof by induction
 
 
-=== Scaled Images
+== Code Blocks
+
+=== Inline Code
+
+Use inline code like `let x: int = 5` within text using backticks.
+
+=== Incline Code with Syntax Higlighing
+
+Use inline code like ```nim let x: int = 5``` within text using backticks.
+
+=== Code Blocks with Syntax Highlighting
+
+```nim
+proc fibonacci(n: int): int =
+  if n < 2:
+    result = n
+  else:
+    result = fibonacci(n - 1) + (n - 2).fibonacci
+```
+
+=== Code Block with Syntax Highlighting and Line Numbering
+
+#context[
+  #show raw.line: it => {
+    h(0em + if it.number < 10 { 0.6em })
+    text(fill: gray)[#it.number]
+    h(0.8em)
+    it.body
+  }
+```nim
+proc fibonacci(n: int): int =
+  if n < 2:
+    result = n
+  else:
+    result = fibonacci(n - 1) + (n - 2).fibonacci
+```]
+
+=== Code Block with Syntax Highlighting and Line Numbering and Other Font Size
+
+#context[
+  #show raw: set text(1.2em)
+
+  #show raw.line: it => {
+    h(0em + if it.number < 10 { 0.6em })
+    text(fill: gray)[#it.number]
+    h(0.8em)
+    it.body
+  }
+```nim
+proc fibonacci(n: int): int =
+  if n < 2:
+    result = n
+  else:
+    result = fibonacci(n - 1) + (n - 2).fibonacci
+```]
+
+=== Code Block in Figure
+
+#figure(
+```nim
+proc fibonacci(n: int): int =
+  if n < 2:
+    result = n
+  else:
+    result = fibonacci(n - 1) + (n - 2).fibonacci
+```,
+  caption: [Code block]
+)
+
+#figure(
+  kind: raw,
+  context[
+  #show raw.line: it => {
+    h(0em + if it.number < 10 { 0.6em })
+    text(fill: gray)[#it.number]
+    h(0.8em)
+    it.body
+  }
+```nim
+proc fibonacci(n: int): int =
+  if n < 2:
+    result = n
+  else:
+    result = fibonacci(n - 1) + (n - 2).fibonacci
+```],
+  caption: [Code block#footnote[Notice that `kind:raw` is added telling typst the figure is a listing, this is becuase the listing is in a `#context` block, and can therefore not automatically detect it as a listing. (raw = listings).]]
+)
+
+== Comments
+
+Comments in Typst are not displayed in the output. // This is a comment
+Comments can be wirtten using two backslashes `\\`.
+
+== Special Charaters and Escaping
 
 
-=== Two Images Beside Each Other
+To display special characters literally, escape them with backslash:
 
+- Asterisk: \*not bold\*
+- Underscore: \_not italic\_
+- Backslash: \\
+- Hash: \#not-a-function
 
+```typst
+\*not bold\*
+\_not italic\_
+\\
+\#not-a-function
+```
 
-== Quote
+== Links
 
-#quote(attribution: [Einstein])[
-  Quotes can be great, although there is not much to them in hte grand scheme of things. it is really just an indented paragrapth...
-]
+External links: #link("https://typst.app")[Typst Website]
+Or use bare URLs: https://en.wikipedia.org/wiki/Hyperlink
 
+== Footnotes
 
+Add footnotes to provide additional information#footnote[This is a footnote.].
+
+== Useful Tips
+
+=== Horizontal Spacing
+
+Use spacing functions for fine control:
+
+- `#h(1em)` for horizontal space
+- `#v(1em)` for vertical space
+
+=== Non-Breaking Space
+
+Use ~ for non-breaking spaces: Figure~1 or Section~2.3
+
+== Labels and Referencing
+
+Add labels to any element for cross-referencing:
+
+```typst
+== Methods <sec:methods>
+
+As described in @sec:methods...
+```
+
+See @ch:ref "Pointing at Stuff" for comprehensive referencing guide.
