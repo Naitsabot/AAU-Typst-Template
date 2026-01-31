@@ -10,7 +10,7 @@
 
 // **** CONFIGURATION ****
 #let body-font = "Barlow"
-#let sans-font = "Source Sans 3" // "Source Sans Pro"
+#let sans-font = "Source Sans Pro" //"Source Sans 3" // "Source Sans Pro"
 #let par_spacing = 1.2em
 #let par_text_spacing = 0.65em
 
