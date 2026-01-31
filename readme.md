@@ -1,1 +1,1 @@
-= AAU Report Template (Naitsa)
+# AAU Report Template (Naitsa)
