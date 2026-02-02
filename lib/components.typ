@@ -9,7 +9,7 @@
         font: body-font, 
         1em, 
         weight: 400, 
-        emph(hydra(2) + h(1fr) + meta.university)
+        emph(hydra(2) + if meta.university != none {h(1fr) + meta.university})
     ))
     line(length: 100%, stroke: .1em + theme_aau.blue)
 }

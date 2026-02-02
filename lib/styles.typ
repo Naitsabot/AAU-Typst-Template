@@ -1,13 +1,11 @@
 // AAU Typst Template - Styling Module
 
 #import "config.typ": *
-#import "@preview/hydra:0.6.2": hydra
 
 // Apply all document-wide styles
 #let apply_styles(localisation, meta) = {
     // **** BASIC TEXT SETTINGS ****
     set text(font: body-font, lang: localisation.lang, region: localisation.region)
-    set heading(numbering: "1.1")
     show heading: set text(font: sans-font, fill: theme_aau.blue)
 
     // **** LINKS STYLING ****
@@ -104,13 +102,16 @@
 }
 
 // Apply body-specific heading styles
-#let apply_body_heading_styles() = {
+#let apply_body_heading_styles() = it => {
+  // Enable heading numbering for body content
+    set heading(numbering: "1.1")
+
     // Heading supplements
     show heading.where(level: 1): set heading(supplement: "Chapter")
     show heading.where(level: 2): set heading(supplement: "Section")
     show heading.where(level: 3): set heading(supplement: "Subsection")
     show heading.where(level: 4): set heading(supplement: "Subsubsection")
-
+  
     // Chapter heading styling
     show heading.where(level: 1): it => {
         pagebreak(weak: true)
@@ -119,14 +120,14 @@
             font: sans-font, 
             4em, 
             weight: "extrabold", 
-            theme_aau.blue, 
+            fill: theme_aau.blue, 
             counter(heading).display()
         ))
         place(right, dy: 1.75em, dx: -.5em, text(
             font: sans-font, 
             1.5em, 
             weight: "extrabold", 
-            theme_aau.blue, 
+            fill: theme_aau.blue, 
             it.body
         ))
         v(4em)
@@ -134,46 +135,52 @@
         // Reset figure counters
         counter(figure.where(kind: table)).update(0)
         counter(figure.where(kind: image)).update(0)
-        counter(figure.where(kind: raw)).update(0)
+        counter(figure.where(kind: raw)).update(0)       
     }
 
     // Section heading styling
     show heading.where(level: 2): it => {
         v(par_spacing, weak: true)
-        set text(1.25em, font: sans-font, weight: "bold", theme_aau.blue)
+        set text(1.25em, font: sans-font, weight: "bold", fill: theme_aau.blue)
         text(counter(heading).display())
         text(" - ")
-        text(theme_aau.blue, it.body)
+        text(fill: theme_aau.blue, it.body)
         v(par_text_spacing, weak: true)
     }
 
     // Subsection heading styling
     show heading.where(level: 3): it => {
         v(par_spacing, weak: true)
-        set text(1.125em, font: sans-font, weight: "bold", theme_aau.blue)
+        set text(1.125em, font: sans-font, weight: "bold", fill: theme_aau.blue)
         text(counter(heading).display())
         text(" - ")
-        text(theme_aau.blue, it.body)
+        text(fill: theme_aau.blue, it.body)
         v(par_text_spacing, weak: true)
     }
 
     // Subsubsection heading styling
     show heading.where(level: 4): it => {
         v(par_spacing, weak: true)
-        set text(1.125em, font: sans-font, weight: "semibold", theme_aau.blue)
-        text(theme_aau.blue, it.body)
+        set text(1.125em, font: sans-font, weight: "semibold", fill: theme_aau.blue)
+        text(fill: theme_aau.blue, it.body)
         v(par_text_spacing, weak: true)
     }
+    
+    it  // Return the content with styles applied
 }
 
 // Apply appendix-specific styles
-#let apply_appendix_styles() = {
+#let apply_appendix_styles() = it => {
+  // Set appendix numbering
+    set heading(numbering: "A.1")
+
     // Figure formatting for appendix
     show heading.where(level: 1): it => {
-        it
+        counter(heading).step(level: 1)  // Step counter first
         counter(figure.where(kind: table)).update(0)
         counter(figure.where(kind: image)).update(0)
         counter(figure.where(kind: raw)).update(0)
+        it
     }
     
     // Custom figure numbering for appendix
@@ -200,37 +207,39 @@
     // Appendix heading styles
     show heading.where(level: 1): h => {
         v(par_spacing, weak: true)
-        set text(1.50em, font: sans-font, weight: "bold", theme_aau.blue)
+        set text(1.50em, font: sans-font, weight: "bold", fill: theme_aau.blue)
         text(counter(heading).display())
         text(" - ")
-        text(theme_aau.blue, h.body)
+        text(fill: theme_aau.blue, h.body)
         v(par_text_spacing, weak: true)
     }
 
     show heading.where(level: 2): h => {
         v(par_spacing, weak: true)
-        set text(1.25em, font: sans-font, weight: "bold", theme_aau.blue)
+        set text(1.25em, font: sans-font, weight: "bold", fill: theme_aau.blue)
         text(counter(heading).display())
         text(" - ")
-        text(theme_aau.blue, h.body)
+        text(fill: theme_aau.blue, h.body)
         v(par_text_spacing, weak: true)
     }
 
     show heading.where(level: 3): h => {
         v(par_spacing, weak: true)
-        set text(1.125em, font: sans-font, weight: "bold", theme_aau.blue)
+        set text(1.125em, font: sans-font, weight: "bold", fill: theme_aau.blue)
         text(counter(heading).display())
         text(" - ")
-        text(theme_aau.blue, h.body)
+        text(fill: theme_aau.blue, h.body)
         v(par_text_spacing, weak: true)
     }
 
     show heading.where(level: 4): h => {
         v(par_spacing, weak: true)
-        set text(1.125em, font: sans-font, weight: "semibold", theme_aau.blue)
+        set text(1.125em, font: sans-font, weight: "semibold", fill: theme_aau.blue)
         text(counter(heading).display())
         text(" - ")
-        text(theme_aau.blue, h.body)
+        text(fill: theme_aau.blue, h.body)
         v(par_text_spacing, weak: true)
     }
+    
+    it  // Return the content with styles applied
 }

@@ -18,14 +18,19 @@
 #let doc(
     meta: default_meta,
     localisation: (lang: "en", region: "gb"),
-    settings: default_settings,  // Use default_settings here
+    settings: default_settings,
     body,
 ) = {
     // **** BASIC DOCUMENT SETTINGS ****
     set document(
         author: meta.participants.map(a => a.name), 
         title: meta.title, 
-        keywords: (if meta.university != none {meta.university} else {""}, if meta.faculty != none {meta.faculty} else {""}, if meta.department != none {meta.department} else {""}, if meta.project_group != none {meta.project_group} else {""})
+        keywords: (
+            if meta.university != none {meta.university} else {""}, 
+            if meta.faculty != none {meta.faculty} else {""}, 
+            if meta.department != none {meta.department} else {""}, 
+            if meta.project_group != none {meta.project_group} else {""}
+        )
     )
 
     // **** APPLY GLOBAL STYLES ****
@@ -60,7 +65,8 @@
     )
     counter(page).update(1)
 
-    apply_body_heading_styles()
+    // Apply body heading styles - these show rules must wrap the body content
+    show: apply_body_heading_styles()
     
     body
 
@@ -76,7 +82,7 @@
     
     show heading.where(level: 1): h => {
         v(par_spacing, weak: true)
-        align(center, text(font: sans-font, 3em, weight: "extrabold", theme_aau.blue)[References])
+        align(center, text(font: sans-font, 3em, weight: "extrabold", fill: theme_aau.blue)[References])
         v(1em)
         v(par_text_spacing, weak: true)
     }
@@ -85,7 +91,7 @@
 
     // **** APPENDIX ****
     if settings.qappendix {
-        apply_appendix_styles()
+        show: apply_appendix_styles()
         
         set page(numbering: "A", number-align: center)
         counter(page).update(1)
@@ -94,7 +100,7 @@
         counter(heading).update(0)
 
         pagebreak(weak: true)
-        align(center, text(font: sans-font, 3em, weight: "extrabold", theme_aau.blue)[Appendices])
+        align(center, text(font: sans-font, 3em, weight: "extrabold", fill: theme_aau.blue)[Appendices])
         v(0em)
         include settings.appendix
     }
