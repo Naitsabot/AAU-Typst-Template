@@ -18,26 +18,14 @@
 #let doc(
     meta: default_meta,
     localisation: (lang: "en", region: "gb"),
-    settings: (
-        bibs: ("//sources.bib"),
-        appendix: "//assets/appendix.typ",
-        qcover: true,
-        qcovertype2: false,
-        qcolophon: true,
-        qabstract: true,
-        qabstractgithub: true,
-        qsignature: true,
-        qpreface: true,
-        qtableofcontents: true,
-        qappendix: true,
-    ),
+    settings: default_settings,  // Use default_settings here
     body,
 ) = {
     // **** BASIC DOCUMENT SETTINGS ****
     set document(
         author: meta.participants.map(a => a.name), 
         title: meta.title, 
-        keywords: (meta.university, meta.faculty, meta.department, meta.project_group)
+        keywords: (if meta.university != none {meta.university} else {""}, if meta.faculty != none {meta.faculty} else {""}, if meta.department != none {meta.department} else {""}, if meta.project_group != none {meta.project_group} else {""})
     )
 
     // **** APPLY GLOBAL STYLES ****

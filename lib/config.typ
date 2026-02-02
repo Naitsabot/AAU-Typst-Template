@@ -24,23 +24,54 @@
 #let default_meta = (
     title: "Document Title",
     subtitle: "Document Subtitle",
-    theme: "Document Theme",
+    theme: none,  // Optional
     project_type: "Project Type",
-    project_period: "Semester Year",
-    project_group: "Group ID",
+    project_period: none,  // Optional
+    project_group: none,  // Optional
     participants: (),
     supervisors: (),
     university: "Aalborg University",
     university_link: link("https://www.aau.dk"),
-    faculty: "The Technical Faculty of IT and Design",
-    faculty_link: link("https://www.tech.aau.dk/"),
-    department: "Computer Science",
-    department_link: link("https://cs.aau.dk"),
-    github_link: none,
+    faculty: none,  // Optional - can be empty string or none
+    faculty_link: none,
+    department: none,  // Optional
+    department_link: none,
+    link_name: none,  // Custom link label (e.g., "GitHub", "Project Page")
+    link: none,  // Custom link URL
     date: datetime.today(),
-    colophon: "",
+
+    // Colophon configuration
+    copyright_holder: "Aalborg University",  // Who holds the copyright
+    copyright_text: none,  // Custom copyright text (overrides default if set)
+    colophon: "",  // Additional colophon text (tools used, acknowledgments, etc.)
+
     abstract: "",
     preface: "",
 )
 
+// **** DEFAULT SETTINGS STRUCTURE ****
+#let default_settings = (
+    bibs: ("//sources.bib"),
+    appendix: "//assets/appendix.typ",
+    
+    // Page toggles
+    qcover: true,
+    qcovertype2: false,
+    qcolophon: true,
+    qabstract: true,
+    qsignature: true,
+    qpreface: true,
+    qtableofcontents: true,
+    qappendix: true,
+    
+    // Abstract page configuration
+    logo_path: "//assets/AAU/aau_logo_en.svg",
+    logo_width: 50%,
+    availability_notice: "The content of this report is freely available, but publication (with reference) may only be pursued after agreement with the author.",
+    show_page_numbers: true,
 
+    // Signature configuration
+    signature_columns: auto,  // auto, 1, 2, 3, etc.
+    signature_line_length: 100%,
+    signature_spacing: 5em,
+)

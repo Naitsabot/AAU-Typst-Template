@@ -2,6 +2,14 @@
 
 #import "config.typ": *
 
+// Helper to create info field
+#let info_field(label, value, label_font: sans-font, value_font: body-font) = {
+    if value != none and value != "" [
+        #text(font: label_font, 1em, weight: "extrabold")[#label:]\
+        #text(font: value_font, 1em, weight: "regular")[#value]
+    ]
+}
+
 // For large documents - reference placeholder
 #let no-ref(it) = {
     show ref: _ => [[?]]

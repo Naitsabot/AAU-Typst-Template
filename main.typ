@@ -28,31 +28,39 @@
         faculty_link: link("https://www.tech.aau.dk/"),
         department: "Computer Science",
         department_link: link("https://cs.aau.dk"),
-        github_link: link("https://github.com/Naitsabot"),
+        link_name: "GitHub Organisation",  // Optional custom link
+        link: link("https://github.com/YourUsername"),  // Optional custom link
         date: datetime.today(),
-        colophon: "Here you can write something about which tools and software you have used for typesetting the document, running simulations and creating figures. If you do not know what to write, either leave this page blank or have a look at the colophon in some of your books.",
-        abstract: "This is the abstract. Around 190 words should be the limit of its length. Otherwise it is just too long and fills too much space.",
-        preface: "A preface is a preview of your writing that introduces you as its author. It can also be used to give praise and dedications to people or organizations",
+        copyright_holder: "Aalborg University", // set as none, for no copyright
+        copyright_text: none,  // Custom copyright text (overrides default if set)
+        colophon: "This document was typeset using Typst and compiled with the AAU template.",
+        abstract: "Your abstract goes here. Around 190 words should be the limit of its length. Otherwise it is just too long and fills too much space.",
+        preface: "Your preface goes here. A preview of your writing that introduces you as its author. It can also be used to give praise and dedications to people or organizations",
     ),
 
     localisation: (
-        lang: "en",
-        region: "gb",
+        lang: "en", 
+        region: "gb"
     ),
 
     settings: (
         bibs: ("//sources.bib"),
         appendix: "//assets/appendix.typ",
         
+        // Page toggles
         qcover: true,
         qcovertype2: false,
         qcolophon: true,
         qabstract: true,
-        qabstractgithub: true,
         qsignature: true,
         qpreface: true,
         qtableofcontents: true,
         qappendix: true,
+        
+        // Customize signature layout
+        signature_columns: 2,  // Force 2 columns
+        signature_line_length: 80%,
+        signature_spacing: 5em,
     ),
 )
 
