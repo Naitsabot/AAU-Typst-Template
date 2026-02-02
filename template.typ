@@ -9,8 +9,8 @@
 #import "@preview/hydra:0.6.2": hydra
 
 // **** CONFIGURATION ****
-#let body-font = "Barlow"
-#let sans-font = "Source Sans Pro" //"Source Sans 3" // "Source Sans Pro"
+#let body-font = "Libertinus Serif"
+#let sans-font = "New Computer Modern"
 #let par_spacing = 1.2em
 #let par_text_spacing = 0.65em
 

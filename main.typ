@@ -1,6 +1,4 @@
- /*
- * Document main
- */
+// AAU Typst Template - User-facing Document File
 
 #import "//template.typ": * // document template
 
@@ -58,19 +56,27 @@
     ),
 )
 
-// Uncomment the following, to reder with no refrences. all refrences becomes "?".
+// Uncomment the following, to render with no refrences. all refrences becomes "?".
 //#show: no-ref
 
-#include "chapters/introduction.typ"
 
-#include "chapters/basics.typ"
+/* 
+ * Your content goes here :)
+ */
 
-#include "chapters/figures.typ"
+= Welcome
 
-#include "chapters/refrences.typ"
+This template provides a comprehensive formatting solution for AAU reports, including automated styling, page layouts, and document components.
 
-#include "chapters/cetz_diagram.typ"
+The key features are summarized in @tab:template_fetaures.
 
-#include "chapters/understanding_typst.typ"
-
-
+#figure(
+    table(
+        columns: 2,
+        [Thing],[Explanation],
+        [Theme],[Theme colors (AAU) \ Font definitions \ Spacing constants \ ],
+        [Styling],[Text and font styling \ Heading styles (all levels 1-4) \ Link and reference styling \ Code block styling (inline and block) \ Math equation styling \ List and table styling \ Quote styling \ Footnote styling \ Citation styling],
+        [Page layouts],[Cover page, alternative cover page, copyright/colophon, abstract/project into, preface/signatures],
+        [Components],[Header component (with hydra integration) \ Footer component \ Figure numbering system \ Chapter styling component \ Body markers for page counting \ Reusable layout components ],
+    )
+) <tab:template_fetaures>
