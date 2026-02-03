@@ -2,6 +2,21 @@
 
 #import "config.typ": *
 
+// Configure codly for a specific code block
+#let code-block(
+    lang: none,
+    caption: none,
+    label: none,
+    code
+) = {
+    figure(
+        code,
+        caption: caption,
+        kind: raw,
+        supplement: [Listing]
+    )
+}
+
 // Helper to create info field
 #let info_field(label, value, label_font: sans-font, value_font: body-font) = {
     if value != none and value != "" [

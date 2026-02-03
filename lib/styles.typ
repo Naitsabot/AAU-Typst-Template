@@ -3,7 +3,7 @@
 #import "config.typ": *
 
 // Apply all document-wide styles
-#let apply_styles(localisation, meta) = {
+#let apply_styles(localisation, meta) = it => {
     // **** BASIC TEXT SETTINGS ****
     set text(font: body-font, lang: localisation.lang, region: localisation.region)
     show heading: set text(font: sans-font, fill: theme_aau.blue)
@@ -44,17 +44,12 @@
     show math.equation: set text(weight: "regular")
 
     // **** CODE BLOCKS ****
+    // ! Codly handles block code styling, only style inline code
     show raw.where(block: false): box.with(
         fill: luma(240),
         inset: (x: 3pt, y: 0pt),
         outset: (y: 3pt),
         radius: 2pt,
-    )
-
-    show raw.where(block: true): block.with(
-        fill: luma(240),
-        inset: 10pt,
-        radius: 4pt,
     )
 
     // **** PARAGRAPH SETTINGS ****
@@ -83,14 +78,6 @@
     show quote: set block(spacing: 1em)
 
     // **** FIGURES ****
-    // Reset figure counters at each chapter
-    show heading.where(level: 1): it => {
-        it
-        counter(figure.where(kind: table)).update(0)
-        counter(figure.where(kind: image)).update(0)
-        counter(figure.where(kind: raw)).update(0)
-    }
-
     set figure(numbering: (..nums) => 
         [#counter(heading).display((..heading_nums) => heading_nums.pos().at(0))\.#nums.pos().at(0)]
     )
@@ -99,8 +86,9 @@
         #v(.75em)
         #figure
     ]
+    
+    it  // ← Return the content with styles applied
 }
-
 // Apply body-specific heading styles
 #let apply_body_heading_styles() = it => {
   // Enable heading numbering for body content

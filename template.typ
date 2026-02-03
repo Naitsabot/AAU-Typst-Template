@@ -6,6 +6,7 @@
 // **** IMPORTS ****
 #import "@preview/mitex:0.2.6": *
 #import "@preview/cetz:0.4.1"
+#import "@preview/codly:1.3.0": *  // Add codly import. Cool code blocks / listings
 
 // Import all modules
 #import "lib/config.typ": *
@@ -34,7 +35,33 @@
     )
 
     // **** APPLY GLOBAL STYLES ****
-    apply_styles(localisation, meta)
+    show: apply_styles(localisation, meta)  // Now wraps all content below
+
+    // **** INITIALIZE CODLY ****
+    show: codly-init.with()
+    
+    // Configure codly styling to match AAU theme
+    codly(
+        languages: (
+            python: (name: "Python", color: theme_aau.blue),
+            rust: (name: "Rust", color: theme_aau.blue),
+            javascript: (name: "JavaScript", color: theme_aau.blue),
+            typescript: (name: "TypeScript", color: theme_aau.blue),
+            java: (name: "Java", color: theme_aau.blue),
+            c: (name: "C", color: theme_aau.blue),
+            cpp: (name: "C++", color: theme_aau.blue),
+            csharp: (name: "C#", color: theme_aau.blue),
+            bash: (name: "Bash", color: theme_aau.blue),
+            sql: (name: "SQL", color: theme_aau.blue),
+        ),
+    )
+    
+    // Set codly appearance
+    codly(
+        number-format: (number) => text(fill: theme_aau.blue, str(number)),
+        zebra-fill: theme_aau.light_blue_opaque,
+        stroke: 1pt + theme_aau.blue,
+    )
 
     // **** FRONT MATTER ****
     set page(numbering: "I", number-align: center)
@@ -65,7 +92,7 @@
     )
     counter(page).update(1)
 
-    // Apply body heading styles - these show rules must wrap the body content
+    // Apply body heading styles
     show: apply_body_heading_styles()
     
     body

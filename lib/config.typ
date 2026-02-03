@@ -74,4 +74,9 @@
     signature_columns: auto,  // auto, 1, 2, 3, etc.
     signature_line_length: 100%,
     signature_spacing: 5em,
+
+    // Codly configuration
+    codly_zebra_fill: true,           // Enable/disable zebra striping
+    codly_line_numbers: true,         // Show line numbers
+    codly_offset: 0,                  // Line number offset
 )
