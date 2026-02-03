@@ -7,6 +7,7 @@
 #import "@preview/mitex:0.2.6": *
 #import "@preview/cetz:0.4.1"
 #import "@preview/hydra:0.6.2": hydra
+#import "@preview/codly:1.3.0": *  // Add codly import. Cool code blocks / listings
 
 // ========================================
 // CONFIG MODULE
@@ -76,6 +77,21 @@
 // ========================================
 // HELPERS MODULE
 // ========================================
+
+// Configure codly for a specific code block
+#let code-block(
+    lang: none,
+    caption: none,
+    label: none,
+    code
+) = {
+    figure(
+        code,
+        caption: caption,
+        kind: raw,
+        supplement: [Listing]
+    )
+}
 
 // Helper to create info field
 #let info_field(label, value, label_font: sans-font, value_font: body-font) = {
@@ -241,17 +257,12 @@
     show math.equation: set text(weight: "regular")
 
     // **** CODE BLOCKS ****
+    // ! Codly handles block code styling, only style inline code
     show raw.where(block: false): box.with(
         fill: luma(240),
         inset: (x: 3pt, y: 0pt),
         outset: (y: 3pt),
         radius: 2pt,
-    )
-
-    show raw.where(block: true): block.with(
-        fill: luma(240),
-        inset: 10pt,
-        radius: 4pt,
     )
 
     // **** PARAGRAPH SETTINGS ****
@@ -291,6 +302,7 @@
     
     it  // ← Return the content with styles applied
 }
+
 // Apply body-specific heading styles
 #let apply_body_heading_styles() = it => {
   // Enable heading numbering for body content
@@ -781,6 +793,32 @@
 
     // **** APPLY GLOBAL STYLES ****
     show: apply_styles(localisation, meta)  // Now wraps all content below
+
+    // **** INITIALIZE CODLY ****
+    show: codly-init.with()
+    
+    // Configure codly styling to match AAU theme
+    codly(
+        languages: (
+            python: (name: "Python", color: theme_aau.blue),
+            rust: (name: "Rust", color: theme_aau.blue),
+            javascript: (name: "JavaScript", color: theme_aau.blue),
+            typescript: (name: "TypeScript", color: theme_aau.blue),
+            java: (name: "Java", color: theme_aau.blue),
+            c: (name: "C", color: theme_aau.blue),
+            cpp: (name: "C++", color: theme_aau.blue),
+            csharp: (name: "C#", color: theme_aau.blue),
+            bash: (name: "Bash", color: theme_aau.blue),
+            sql: (name: "SQL", color: theme_aau.blue),
+        ),
+    )
+    
+    // Set codly appearance
+    codly(
+        number-format: (number) => text(fill: theme_aau.blue, str(number)),
+        zebra-fill: theme_aau.light_blue_opaque,
+        stroke: 1pt + theme_aau.blue,
+    )
 
     // **** FRONT MATTER ****
     set page(numbering: "I", number-align: center)

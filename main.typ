@@ -152,7 +152,7 @@
         region: "gb"
     ),
 
-    // ==========================================================================
+        // ==========================================================================
     // SETTINGS - Template behavior and appearance
     // ==========================================================================
     settings: (
@@ -236,6 +236,24 @@
         
         // Show page count on abstract page
         show_page_numbers: true,
+        
+        // ----------------------------------------------------------------------
+        // CODLY CODE BLOCK CONFIGURATION
+        // Controls appearance of code blocks throughout the document
+        // ----------------------------------------------------------------------
+        
+        // Show language name label on code blocks
+        codly_display_name: true,
+        
+        // Show language icon on code blocks (requires icon configuration)
+        codly_display_icon: false,
+        
+        // Enable zebra striping (alternating row colors) for readability
+        codly_zebra_fill: true,
+        
+        // Width of border around code blocks
+        // Set to 0pt for no border
+        codly_stroke_width: 1pt,
     ),
 )
 
@@ -244,7 +262,7 @@
 // ============================================================================
 
 // Uncomment the following to render with no references (all refs become "?")
-// Useful for large documents during initial writing phase
+// Useful for large documents if anything for some reason glitches out because of an overflood of references
 // #show: no-ref
 
 // ============================================================================
@@ -266,29 +284,6 @@
 = Welcome
 
 This template provides a comprehensive formatting solution for AAU reports, including automated styling, page layouts, and document components.
-
-The key features are summarized in @tab:template_features.
-
-#figure(
-    table(
-        columns: 2,
-        fill: (_, row) => if calc.odd(row) {
-            theme_aau.light_blue_opaque
-        } else if row == 0 {
-            theme_aau.light_blue
-        },
-        align: (col, row) => {
-            if row > 0 and col >= 0 { left } 
-            else { center }
-        },
-        [*Thing*], [*Explanation*],
-        [Theme], [Theme colors (AAU) \ Font definitions \ Spacing constants],
-        [Styling], [Text and font styling \ Heading styles (all levels 1-4) \ Link and reference styling \ Code block styling (inline and block) \ Math equation styling \ List and table styling \ Quote styling \ Footnote styling \ Citation styling],
-        [Page layouts], [Cover page \ Alternative cover page \ Copyright/colophon \ Abstract/project info \ Preface/signatures],
-        [Components], [Header component (with Hydra integration) \ Footer component \ Figure numbering system \ Chapter styling component \ Body markers for page counting \ Reusable layout components],
-    ),
-    caption: [Template features overview]
-) <tab:template_features>
 
 == Using This Template
 
