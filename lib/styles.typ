@@ -89,6 +89,7 @@
     
     it  // ← Return the content with styles applied
 }
+
 // Apply body-specific heading styles
 #let apply_body_heading_styles() = it => {
   // Enable heading numbering for body content
