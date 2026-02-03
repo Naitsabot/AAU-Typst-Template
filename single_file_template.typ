@@ -1,11 +1,13 @@
 /* 
  * AAU Typst Template v3.0 - Single File Bundle
  * All modules combined for easy web usage
+ * 
+ * Made by Naitsa (Sebastian H. Lorenzen)
  */
 
 // **** IMPORTS ****
 #import "@preview/mitex:0.2.6": *
-#import "@preview/cetz:0.4.1"
+#import "@preview/cetz:0.4.1" // Advanced diagram creation
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/codly:1.3.0": *  // Add codly import. Cool code blocks / listings
 

@@ -1,12 +1,14 @@
 /* 
  * AAU Software Typst Template 3.0
- * Modular refactored version
+ * Modulised
+ * 
+ * Made by Naitsa (Sebastian H. Lorenzen)
  */
 
 // **** IMPORTS ****
 #import "@preview/mitex:0.2.6": *
-#import "@preview/cetz:0.4.1"
-#import "@preview/codly:1.3.0": *  // Add codly import. Cool code blocks / listings
+#import "@preview/cetz:0.4.1" // Advanced diagram creation
+#import "@preview/codly:1.3.0": *  // Cool code blocks / listings
 
 // Import all modules
 #import "lib/config.typ": *
