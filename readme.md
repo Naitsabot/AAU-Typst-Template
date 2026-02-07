@@ -20,7 +20,7 @@ Should look like this:
 Recommended if you want more flexibility. It is much easier to modify the template, as it is split into multiple modules.
 The single file template is a concatenated version of the modularized template.
 
-Simply copy the contents of `aau-report/` into any project. (Its template root is in `aau-report/` in this repo).
+Simply copy all files from the `aau-report/` folder into your project's main folder (where your main.typ file will be).
 
 ## IEEE Paper with AAU Styled Info Section and Summary Page
 
@@ -28,7 +28,7 @@ Simply copy the contents of `aau-report/` into any project. (Its template root i
 
 Uses the IEEE paper template from Typst, and adds the AAU info page and required summary.
 
-To use, copy the content of the folder `aau-ieee-paper/` into the online app or other project. (The root of the template is in `aau-ieee-paper/` in this repo).
+To use, copy all files from the `aau-ieee-paper/` folder into your project's main folder (where your main.typ file will be).
 
 Should look like this:
 
