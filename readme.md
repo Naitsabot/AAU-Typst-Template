@@ -34,6 +34,58 @@ Should look like this:
 
 ![Typst Online directory for paper](docs/typstonlinedir-paper.png)
 
+## TODO and drafting functionality? Let me show you how.
+It is intentinal that a TODO function has not been added to the template itself, as idealy it should represent the final product.\
+However, that dose not mean that todo-notes are bad.
+
+To add todo notes, simply use the [Dashy todo package](https://typst.app/universe/package/dashy-todo/)!\
+In the `main.typ` do the following:
+```typst
+// add this at the top
+#import "@preview/drafting:0.2.2"
+
+// For a todo outline, add the folowing jsut before the first chapter heading
+#outline(title: "TODOs", target: figure.where(kind: "todo"))
+
+// Adding todos. Simply add some of the following in the main content
+#todo[I'm a todo]. // Todo to some margin
+#todo(position: right)[Also right] // Todo in right margin
+#todo[We need to fix the $lim_(x -> oo)$ equation. See #link("https://example.com")[example.com]]
+
+// Can be styled
+#todo(stroke: blue)[This is in blue!]
+
+#let blue-todo = todo.with(stroke: blue)
+#blue-todo[This is also in blue!]
+```
+
+
+
+Another package one can use for general annotations is the the [Drafting package](https://typst.app/universe/package/drafting). This can also be used for todo notes. basically, it has a lot of functionallity... \
+In the `main.typ` do the following:
+```typst
+// Add this at the top
+#import "@preview/drafting:0.2.2"
+
+// Just before the first chapter headline do the following
+
+// Notes occupy the full amrgins pr default, if you want them to be a bit slimmer do the following
+// Left margin
+#set-page-properties(margin-left: 2cm) 
+// Right margin
+#set-page-properties(margin-right: 2cm) 
+
+// Outline of all your notes!
+#note-outline()
+
+// Now in the main content body where you want notes
+#margin-note[Hello from the other side] // Normal adaptive note
+#margin-note(side: left)[Hello, world!] // Note in left margin
+#margin-note(stroke: aqua + 3pt)[To avoid collision] // Note with another stroke
+#inline-note[The default inline note will split the paragraph at its location] // Inline note
+```
+
+Remember to disable your annotations when you are done and need to hand in your work! :D
 
 ## Configuration
 
