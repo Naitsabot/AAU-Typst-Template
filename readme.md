@@ -5,6 +5,7 @@ Short ieee paper template, with info page and summary page.
 
 ## Quick-start Guide for Online Usage (Fingle file Tempalte)
 > _**This is the recommended option** becuase of restrictions on the number of files online useres can have in a project, in the free tier of the Typst Online App._
+> ! USES ONLINE FONTS, if running in local project, modify fonts or have fonts available.
 
 Copy all the contents of the folder `aau-quick-report/` into your project.
 
@@ -18,6 +19,7 @@ The single file tamplate is a concatened version of the modulised template.
 Simply copy the contents the `aau-report/` into any project. (Its template root is in `aau-report/` in this repo).
 
 ## ieee Paper with AAU Styled Info Section and Summary Page
+> ! USES ONLINE FONTS, if running in local project, modify fonts or have fonts available.
 
 Uses the ieee paper template from Typst, and adds the loved info page, and a the required sumamry.
 
