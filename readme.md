@@ -1,31 +1,37 @@
 # AAU Typst Template (Naitsa)
-AAU report template written in typst. It has a lot of cosumizability.
 
-Short ieee paper template, with info page and summary page.
+AAU report template written in Typst with extensive customizability.
 
-## Quick-start Guide for Online Usage (Fingle file Tempalte)
-> _**This is the recommended option** becuase of restrictions on the number of files online useres can have in a project, in the free tier of the Typst Online App._
-> ! USES ONLINE FONTS, if running in local project, modify fonts or have fonts available.
+Includes a short IEEE paper template with info page and summary page.
+
+## Quick-start Guide for Online Usage (Single File Template)
+> _**This is the recommended option** because of restrictions on the number of files online users can have in a project in the free tier of the Typst Online App._
+> 
+> **Note:** Uses online fonts. If running in a local project, modify fonts or ensure fonts are available locally.
 
 Copy all the contents of the folder `aau-quick-report/` into your project.
 
-Should look like this: \
-![aTypst Online directory for report](docs/typstonlinedir-report.png)
+Should look like this:
 
-## Full Template (modulised)
-Reccomneded if you want it. It is much easier to modify the template, as it is split into multiple modules.
-The single file tamplate is a concatened version of the modulised template.
+![Typst Online directory for report](docs/typstonlinedir-report.png)
 
-Simply copy the contents the `aau-report/` into any project. (Its template root is in `aau-report/` in this repo).
+## Full Template (Modularized)
 
-## ieee Paper with AAU Styled Info Section and Summary Page
-> ! USES ONLINE FONTS, if running in local project, modify fonts or have fonts available.
+Recommended if you want more flexibility. It is much easier to modify the template, as it is split into multiple modules.
+The single file template is a concatenated version of the modularized template.
 
-Uses the ieee paper template from Typst, and adds the loved info page, and a the required sumamry.
+Simply copy the contents of `aau-report/` into any project. (Its template root is in `aau-report/` in this repo).
 
-To use, copy the content of the folder `aau-ieee-paper` into the online app / or other project. (The root of the template is in `aau-ieee-paper/` in this repo). 
+## IEEE Paper with AAU Styled Info Section and Summary Page
 
-Should look like this: \
+> **Note:** Uses online fonts. If running in a local project, modify fonts or ensure fonts are available locally.
+
+Uses the IEEE paper template from Typst, and adds the AAU info page and required summary.
+
+To use, copy the content of the folder `aau-ieee-paper/` into the online app or other project. (The root of the template is in `aau-ieee-paper/` in this repo).
+
+Should look like this:
+
 ![Typst Online directory for paper](docs/typstonlinedir-paper.png)
 
 
@@ -33,7 +39,9 @@ Should look like this: \
 
 ## The Look of it All
 
-FONTS: In the template, under `configs.typ` (or by searching for “FONT CONFIGURATION”), the fonts can be modified.
+### Fonts
+
+In the template, under `configs.typ` (or by searching for "FONT CONFIGURATION"), the fonts can be modified.
 
 There are two fonts: the body font for the main text, and the sans font for headings and similar elements.
 ```typst
@@ -47,22 +55,28 @@ For the demonstration, however, the fonts “Barlow” and “Source Sans Pro”
 ### Report
 
 #### Front Matter Pages
-Cover page: \
+Cover page:
+
 ![report coverpage](docs/report-coverpage.png)
 
-Alternative cover page: \
+Alternative cover page:
+
 ![report coverpage alt](docs/report-coverpage-alt.png)
 
-Colophon page: \
+Colophon page:
+
 ![report colophon page](docs/report-colophon.png)
 
-Info and abstract page: \
+Info and abstract page:
+
 ![report info and abstract page](docs/report-info.png)
 
-Preface: \
+Preface:
+
 ![report preface page](docs/report-preface.png)
 
-Table of contents page
+Table of contents:
+
 ![report table of contents page](docs/report-toc.png)
 
 #### Main Content Pages
@@ -73,27 +87,30 @@ There is a lot of styling that can be shown, but this is the main gist of it.
 
 #### Back Matter Pages
 
-Bibliography/References pages (other styles exists): \
-![repoort reReferences pages](docs/report-ref.png)
+Bibliography/References pages (other styles exist):
 
-Appendices pages: \
+![report References pages](docs/report-ref.png)
+
+Appendices pages:
+
 ![report appendices pages](docs/report-apx.png)
 
 ### Paper
 
-Info and abstract page: \
+Info and abstract page:
+
 ![paper info and abstract page](docs/paper-info.png)
 
-Summary page: \
-![apaper summary page](docs/paper-summary.png)
+Summary page:
 
-Main content ieee paper pages: \
+![paper summary page](docs/paper-summary.png)
+
+Main content IEEE paper pages:
+
 ![paper ieee main content pages](docs/paper-ieee.png)
 
 
 
 ## Attribution
 
-This project was originally based on [AAU Typst Template](https://github.com/krestenlaust/AAU-Typst-Template)
-by Kresten Laust, licensed under MIT License. It has since
-evolved into an independent project with significant modifications and coding practices.
+This project was originally based on [AAU Typst Template](https://github.com/krestenlaust/AAU-Typst-Template) by Kresten Laust, licensed under MIT License. It has since evolved into an independent project with significant modifications and enhanced coding practices.
