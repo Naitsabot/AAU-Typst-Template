@@ -35,6 +35,78 @@ Should look like this:
 ![Typst Online directory for paper](docs/typstonlinedir-paper.png)
 
 
+## Configuration
+
+All configuration for the report template is done in `main.typ`.
+
+All this info is also present in the `main.typ files`!
+
+### Report Template
+
+**Basic Information:**
+- `title` - Main document title
+- `subtitle` - Document subtitle
+- `theme` - Academic topic area (set to `none` to hide)
+- `project_type` - Type of project (e.g., "Bachelor's Thesis", "Semester Project")
+- `project_period` - Academic period (e.g., "Spring 2026") (set to `none` to hide)
+- `project_group` - Group identifier (e.g., "cs-26-sw-6-03") (set to `none` to hide)
+
+**People:**
+- `participants` - List of authors with `name` and `email`
+- `supervisors` - List of supervisors with `name` and `email`
+
+**Institution:**
+- `university` - University name
+- `university_link` - University website
+- `faculty` - Faculty name (set to `none` to hide)
+- `faculty_link` - Faculty website
+- `department` - Department name (set to `none` to hide)
+- `department_link` - Department website
+- `link_name` - Custom link label (e.g., "GitHub") (set to `none` to hide)
+- `link` - Custom link URL
+
+**Content:**
+- `abstract` - Document summary (~190 words recommended)
+- `preface` - Introduction from authors
+- `colophon` - Document production info
+- `date` - Document date (by default it uses the current date). \
+  (Set to some `datetime(year: 2026, month: 6, day: 24)` for static date)
+
+**Page Toggles** (set to `true` or `false`):
+- `qcover` - Include cover page
+- `qcovertype2` - Use alternative cover with image
+- `qcolophon` - Include colophon page
+- `qabstract` - Include abstract page
+- `qpreface` - Include preface page
+- `qsignature` - Include signature lines on preface
+- `qtableofcontents` - Include table of contents
+- `qappendix` - Include appendices
+
+**File Paths:**
+- `bibs` - Bibliography file(s), e.g., `("//sources.bib")`
+- `appendix` - Appendix content file, e.g., `"//assets/appendix.typ"`
+
+**Signature configurations:** \
+The signature lines can be configured.
+
+**Abstract page configurations:** \
+the logo, logo width, the availability notice, and if the number of pages are shown can be changed.
+
+**Codly code block configuration:** \
+Controls appearance of code blocks throughout the document.  \
+Can also be changed in the template itself.
+
+### Paper Template
+
+Configuration for the IEEE paper template is done in the `main.typ`:
+- `title` - Paper title
+- `participants` - Authors with `name`, `department`, `location`, `email`
+- `supervisors` - Supervisors with `name` and `email`
+- `abstract` - Paper abstract (150-250 words)
+
+All info fields on the info/abstract page can be changed removed or added.
+
+
 
 
 ## The Look of it All
