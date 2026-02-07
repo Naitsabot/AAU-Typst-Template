@@ -34,9 +34,9 @@ Should look like this:
 
 ![Typst Online directory for paper](docs/typstonlinedir-paper.png)
 
-## TODO and drafting functionality? Let me show you how.
-It is intentinal that a TODO function has not been added to the template itself, as idealy it should represent the final product.\
-However, that dose not mean that todo-notes are bad.
+## TODO and Drafting Functionality
+It is intentional that a TODO function has not been added to the template itself, as ideally it should represent the final product.\
+However, that does not mean that todo-notes are bad.
 
 To add todo notes, simply use the [Dashy todo package](https://typst.app/universe/package/dashy-todo/)!\
 In the `main.typ` do the following:
@@ -44,7 +44,7 @@ In the `main.typ` do the following:
 // add this at the top
 #import "@preview/drafting:0.2.2"
 
-// For a todo outline, add the folowing jsut before the first chapter heading
+// For a todo outline, add the following just before the first chapter heading
 #outline(title: "TODOs", target: figure.where(kind: "todo"))
 
 // Adding todos. Simply add some of the following in the main content
@@ -61,7 +61,7 @@ In the `main.typ` do the following:
 
 
 
-Another package one can use for general annotations is the the [Drafting package](https://typst.app/universe/package/drafting). This can also be used for todo notes. basically, it has a lot of functionallity... \
+Another package one can use for general annotations is the [Drafting package](https://typst.app/universe/package/drafting). This can also be used for todo notes and has a lot of functionality. \
 In the `main.typ` do the following:
 ```typst
 // Add this at the top
@@ -69,7 +69,7 @@ In the `main.typ` do the following:
 
 // Just before the first chapter headline do the following
 
-// Notes occupy the full amrgins pr default, if you want them to be a bit slimmer do the following
+// Notes occupy the full margins by default, if you want them to be a bit slimmer do the following
 // Left margin
 #set-page-properties(margin-left: 2cm) 
 // Right margin
