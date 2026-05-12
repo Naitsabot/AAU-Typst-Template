@@ -42,7 +42,7 @@ To add todo notes, simply use the [Dashy todo package](https://typst.app/univers
 In the `main.typ` do the following:
 ```typst
 // add this at the top
-#import "@preview/drafting:0.2.2"
+#import "@preview/dashy-todo:0.1.3"
 
 // For a todo outline, add the following just before the first chapter heading
 #outline(title: "TODOs", target: figure.where(kind: "todo"))
